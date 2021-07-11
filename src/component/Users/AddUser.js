@@ -13,6 +13,8 @@ const AddUser = () => {
   const nameInputRef = useRef();
   const ageRef = useRef();
   const [error, setError] = useState();
+
+  
   const addUserHandler = (event) => {
     event.preventDefault();
     const enterdUserName = nameInputRef.current.value;

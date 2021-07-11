@@ -15,10 +15,11 @@ export const RemoveID=(removeId)=>{
            }
 }
 
-export const EditData=(editId)=>{
+export const EditData=(editId,data)=>{
     //console.log('Action==', newVal)
     return {
         type:actionTypes.EDIT_DATA,
-        id:editId
+        id:editId,
+        data:data
            }
 }

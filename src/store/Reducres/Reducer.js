@@ -1,6 +1,6 @@
 import * as actionTypes from "../Actions/ActionType";
 import { updateObject } from "../Utility";
-
+  
 const initialState = {
   StudentData: [],
 };
@@ -9,14 +9,14 @@ const updateData = (state, action) => {
   const data = action.data;
   const updatedArray = [...state.StudentData, data];
   return updateObject(state, {
-    StudentData: updatedArray,
+  StudentData: updatedArray,
   });
 };
 
 const RemoveID = (state, action) => {
     const id = action.id
     const removeData = state.StudentData.filter((result)=>result.id!==id)
-  return updateObject(state, {
+    return updateObject(state, {
     StudentData: removeData,
   });
 };
@@ -25,10 +25,12 @@ const EditData = (state, action) => {
      const id = action.id
      const elementIndex = state.StudentData.findIndex((currId)=> currId.id===id)
      const newArray = [...state.StudentData]
+     const editData = action.data
+     newArray[elementIndex] = {...newArray[elementIndex], ...editData}
      return updateObject(state,{
-
+      StudentData: newArray
      })
-};
+}
 
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
